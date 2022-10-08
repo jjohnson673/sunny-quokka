@@ -5,16 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Quiz</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <div class="container"> 
-        <div id="home" class="flex-column flex-center">
-            <h1> How Well Do You Know JavaScript?</h1>
-            <a href="/game.html" class="btn">PLAY</a>
+        <div class="main-bar">
             <a href="/highscores.html" class="btn">Highscores</a>
         </div>
+        <div class="start-page">
+            <h1> How Well Do You Know JavaScript?
+                <br> Take the Quiz to Find Out!</h1>
+            </h1>
+            <a href="/game.html" class="btn">PLAY</a>
+
+        </div>
+        <div class=" timer-bar">
+            <p>Timer:</p>
+        </div>
     </div>
+
+
+    <script src="assets/js/logic.js"></script>
+    <script src="assets/js/questions.js"></script>
+    <script src="assets/js/scores.js"></script>
     
-</body>
 </html>
