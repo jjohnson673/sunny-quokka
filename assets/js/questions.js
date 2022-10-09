@@ -2,14 +2,14 @@
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('question-option'));
 const scoretext = document.getElementById('score');
-const timertext = document.getElementById('timer');
+
 
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = []
-let timer = 0;
+let secondsleft = 20;
 
 let questions = [
     {
@@ -65,6 +65,23 @@ startGame = () => {
     getNewQuestion();
 };
 
+// Timer function
+var counter = 15;
+
+function startTimer() {
+    var timer = select('#timer')
+    timer.html('15')
+
+function timeIt() {
+    counter;
+    timer.html(counter);
+
+}
+    setInterval(timeIt, 1000);
+
+};
+
+
 getNewQuestion = () => {
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         /* when all of the questions are answered or when the timer runs out, goes to submit highscore */
@@ -100,6 +117,9 @@ choices.forEach((choice) => {
 
         if(classToApply === 'correct'){
             incrementScore(CORRECT_BONUS)
+        }
+        else {
+            secondsleft -=2
         }
 
         selectedChoice.parentElement.classList.add(classToApply);

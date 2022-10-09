@@ -1,5 +1,5 @@
 :root {
-    background-color: rgb(65, 66, 66);
+    background-color: #9EAFC3;
     font-size: 62.5%
 
 }
@@ -9,17 +9,19 @@
     padding: 0;
     box-sizing: border-box;
     font-family: monospace;
-    color: lightslategray;
+    color: #000000;
 }
 
 h1, h2, h3, h4 {
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 h1 {
     font-size: 5rem;
     color: black;
     margin-bottom: 5rem;
+    text-align: center;
 }
 
 h1 > span {
@@ -45,7 +47,7 @@ h3 {
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    max-width: 40rem;
+    max-width: 80rem;
 }
 
 .container > * {
@@ -98,8 +100,8 @@ h3 {
 /* Formatting for buttons*/
 .btn,
 #submitbutton,
-.end-btn {
-    font-size: 1.8rem;
+#end-btn {
+    font-size: 2.8rem;
     padding: 1rem 0;
     width: 20rem;
     text-align: center;
@@ -108,11 +110,15 @@ h3 {
     text-decoration: none;
     color: #56a5eb;
     background-color: white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
   }
   
   .btn:hover,
   #submitbutton:hover,
-  .end-btn {
+  #end-btn:hover {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
     transform: translateY(-0.1rem);
