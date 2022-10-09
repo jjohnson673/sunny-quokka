@@ -2,6 +2,8 @@
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('question-option'));
 const scoretext = document.getElementById('score');
+var timeleft = 15;
+var timerID;
 
 
 let currentQuestion = {};
@@ -63,27 +65,39 @@ startGame = () => {
     score = 0;
     availableQuestions = [...questions];
     getNewQuestion();
-};
+    timerID = setInterval(countdown, 1000);
+    var elem = document.getElementById("timer");
+
+
 
 // Timer function
-var counter = 15;
+function countdown () {
+    if(timeleft == 0) {
+        clearTimeout(timerID);
+        gameEnd();
+        } else {
+            elem.innerHTML = timeleft;
+            timeleft--;
+        }
+    }
 
-function startTimer() {
-    var timer = select('#timer')
-    timer.html('15')
+function gameEnd() {
+    clearInterval(timerID);
+    var ShowQ = document.getElementById('question');
+    showQ.style.display = "none"
+    timerEl.style.display = "none"
+    // show end screen
+    // var endScreenEl = document.getElementById('finalscore');
 
-function timeIt() {
-    counter;
-    timer.html(counter);
-
+    // show final score
+    var finalScoreEl = document.getElementById('finalscore');
+    finalScoreEl.textContent = timeLeft;
 }
-    setInterval(timeIt, 1000);
-
-};
-
+}
 
 getNewQuestion = () => {
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        localStorage.setItem('mostRecentScore', score)
         /* when all of the questions are answered or when the timer runs out, goes to submit highscore */
         return window.location.assign('endgame.html');
     }
@@ -130,6 +144,8 @@ choices.forEach((choice) => {
     }, 1000);
   });
 });
+
+
 
 incrementScore = num => {
     score += num;

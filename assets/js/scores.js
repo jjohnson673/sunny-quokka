@@ -3,42 +3,39 @@ const Submitbutton = document.getElementById('submitbutton')
 const finalscore = document.getElementById('finalscore')
 const mostRecentScore = localStorage.getItem('mostRecentScore')
 
-const highscore = JSON.parse(localStorage.getItem('highscore')) || []
+const highScores = JSON.parse(localStorage.getItem('highScore')) || []
 
 const MAX_HIGH_SCORES = 5
 
-finalscore.innerText = mostRecentScore
+finalscore.innerText = mostRecentScore;
 
-/*ensures that the user implements their name before saving */
-username.addEventListener('keyup' () => {
-    Submitbutton.disabled = !username.value
-})
 
-savehighscore = e => {
+//end game submit high score
+submithighscore = e => {
     e.preventDefault ()
 
     const score = {
         score: mostRecentScore,
         name: username.value
-    }
+    };
 
-    highscore.push(score)
+    highScore.push(score)
+//if score B is higher than score A, put score B above A
+    highScore.sort((a, b) =>  b.score - a.score);
+    highScore.splice(5);
 
-    highscore.sort((a,b) => {
-        return b.score - a.score
-    })
+    localStorage.setItem('highScore', JSON.stringify(highScore))
+    window.location.assign('highscorepage.html')
+};
 
-    highscore.splice(5)
+//highscore list
 
-    localStorage.setItem('highscore', JSON.stringify(highscore))
-    window.location.assign('/')
-}
+const highScoresList = document.getElementById("highscore-list");
+const highScore = JSON.parse(localStorage.getItem('highScore')) || [];
+highScoresList.innerHTML = highScore
+.map( score => {
+    return'<li class="high-score">${score.name}-${score.score}</li>';
+}).join("");
 
 
-const highScoreList = document.querySelector(#highscore-list)
-const highScores = JSON.parse(localStorage.getItem('highScores')) || []
 
-
-highScoreList.innerHTML = highScores.map(score => {
-    return `<li class="high-score">${score.name} - ${score.score}</li>`
-}) .join('')
