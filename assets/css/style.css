@@ -12,11 +12,8 @@
     color: lightslategray;
 }
 
-
-
 h1, h2, h3, h4 {
     margin-bottom: 1rem;
-
 }
 
 h1 {
@@ -25,12 +22,10 @@ h1 {
     margin-bottom: 5rem;
 }
 
-
 h1 > span {
     font-size: 2.4 rem;
     font-weight: 500;
 }
-
 
  h2 {
     font-size: 4.2rem;
@@ -52,7 +47,6 @@ h3 {
     width: 100vw;
     max-width: 40rem;
 }
-
 
 .container > * {
     width: 100%;
@@ -81,6 +75,26 @@ h3 {
 }
 
 
+/*formatting for the main display bar with the timer and score*/
+
+#display-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.display-topic {
+    font-size: 2.6rem;
+    text-align: center;
+}
+
+.display-topic-text {
+    text-align:center;
+
+}
+
+
+
+
 /* Formatting for buttons*/
 .btn {
     font-size: 1.8rem;
@@ -106,8 +120,6 @@ h3 {
     box-shadow: none;
     transform: none;
   }
-
-
 
 
 
@@ -140,6 +152,16 @@ h3 {
     padding: 1.5rem;
   }
 
+/*colors for when selecting an answer, will appear green or red */
+.correct {
+    background-color: green;
+
+}
+
+.incorrect {
+    background-color: red;
+
+}
 
 
 

@@ -1,13 +1,15 @@
 
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('question-option'));
-
+const scoretext = document.getElementById('score');
+const timertext = document.getElementById('timer');
 
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
-let availableQuesions = [];
+let availableQuesions = []
+let timer = 0;
 
 let questions = [
     {
@@ -88,13 +90,27 @@ getNewQuestion = () => {
 choices.forEach((choice) => {
     choice.addEventListener('click', (e) => {
     /*prevents the user from pre-maturely clicking while answers are loading */
-        if (!acceptingAnswers) return;
 
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset['number'];
-        getNewQuestion();
-    });
+
+    /* defines if the selected answer is the correct/incorrect answer */
+        const classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+
+        selectedChoice.parentElement.classList.add(classToApply);
+
+    setTimeout(() => {
+      selectedChoice.parentElement.classList.remove(classToApply);
+      getNewQuestion();
+    }, 1000);
+  });
 });
+
+incrementScore = num => {
+    score += num;
+    scoretext.innerText = score;
+}
+
 
 startGame();
