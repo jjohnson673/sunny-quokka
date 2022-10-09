@@ -8,7 +8,7 @@ let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
-let availableQuesions = []
+let availableQuestions = []
 let timer = 0;
 
 let questions = [
@@ -61,20 +61,20 @@ const MAX_QUESTIONS = 5;
 startGame = () => {
     questionCounter = 0;
     score = 0;
-    availablequestions = [...questions];
+    availableQuestions = [...questions];
     getNewQuestion();
 };
 
 getNewQuestion = () => {
-    if (availablequestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         /* when all of the questions are answered or when the timer runs out, goes to submit highscore */
-        return window.location.assign('/end.html');
+        return window.location.assign('endgame.html');
     }
 
     /* getting a random question until each question has been answered once */
     questionCounter++;
-    const questionIndex = Math.floor(Math.random() * availablequestions.length);
-    currentQuestion = availablequestions[questionIndex];
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
 
     /*gives a reference to each question choice option to determine if the correct answer was selected*/
@@ -83,7 +83,7 @@ getNewQuestion = () => {
         choice.innerText = currentQuestion['choice' + number];
     });
 /*takes the available questions array and removes the question that was previously answered */
-    availableQuesions.splice(questionIndex, 1);
+    availableQuestions.splice(questionIndex, 1);
     acceptingAnswers = true;
 };
 
@@ -96,7 +96,11 @@ choices.forEach((choice) => {
         const selectedAnswer = selectedChoice.dataset['number'];
 
     /* defines if the selected answer is the correct/incorrect answer */
-        const classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+        let classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+
+        if(classToApply === 'correct'){
+            incrementScore(CORRECT_BONUS)
+        }
 
         selectedChoice.parentElement.classList.add(classToApply);
 
