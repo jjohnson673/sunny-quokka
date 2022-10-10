@@ -17,7 +17,7 @@ Within this quiz you can find Javascript, HTML and CSS. This quiz was designed t
 
 ## <a href="https://jjohnson673.github.io/sunny-quokka/" target="_blank">Deployed Github URL Link</a>
 
-
+![Java Script Quiz Snippet](./assets/images/JS-Quiz.png)
 
 
 
