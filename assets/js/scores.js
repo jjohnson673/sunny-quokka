@@ -11,7 +11,7 @@ finalscore.innerText = mostRecentScore;
 
 
 //end game submit high score
-submithighscore = e => {
+submithighScore = e => {
     e.preventDefault ()
 
     const score = {
@@ -32,8 +32,7 @@ submithighscore = e => {
 
 const highScoresList = document.getElementById("highscore-list");
 const highScore = JSON.parse(localStorage.getItem('highScore')) || [];
-highScoresList.innerHTML = highScore
-.map( score => {
+highScoresList.innerHTML = highScore.map( score => {
     return'<li class="high-score">${score.name}-${score.score}</li>';
 }).join("");
 
