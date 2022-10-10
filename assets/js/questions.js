@@ -81,7 +81,18 @@ function countdown () {
         }
     }
 
+function gameEnd() {
+    clearInterval(timerID);
+    var ShowQ = document.getElementById('question');
+    showQ.style.display = "none"
+    timerEl.style.display = "none"
+    // show end screen
+    // var endScreenEl = document.getElementById('finalscore');
 
+    // show final score
+    var finalScoreEl = document.getElementById('finalscore');
+    finalScoreEl.textContent = timeLeft;
+}
 }
 
 getNewQuestion = () => {
@@ -142,15 +153,4 @@ incrementScore = num => {
 }
 
 
-function gameEnd() {
-    clearInterval(timerID);
-    var ShowQ = document.getElementById('question');
-    showQ.style.display = "none"
-    timerEl.style.display = "none"
-    // show end screen
-    // var endScreenEl = document.getElementById('finalscore');
-
-    // show final score
-    var finalScoreEl = document.getElementById('finalscore');
-    finalScoreEl.textContent = timeLeft;
-}
+startGame();
