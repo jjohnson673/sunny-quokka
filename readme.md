@@ -1,4 +1,4 @@
-# <a href= target="_blank">Java Script Quiz</a>
+# Java Script Quiz
 
 ## Description
 
@@ -10,12 +10,12 @@ If a question is answered incorrectly, a second will be deducted from the clock 
 
 When the quiz is finished, those who have finished in the top 5 will be able to put their names on the board to display their highscore. 
 
-## Installation
+## Code
+
+Within this quiz you can find Javascript, HTML and CSS. This quiz was designed to implement our most recent module lesson of Javascript.
 
 
-
-
-## Usage
+## <a href="https://jjohnson673.github.io/sunny-quokka/" target="_blank">Deployed Github URL Link</a>
 
 
 
